@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: sep-to-ebook
+Version: 0.1.0
+Summary: Fetch Stanford Encyclopedia of Philosophy entries and package them as EPUB.
+Requires-Python: >=3.11
+Requires-Dist: beautifulsoup4<5,>=4.12

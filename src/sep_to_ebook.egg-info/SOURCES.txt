@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/sep_to_ebook/__init__.py
+src/sep_to_ebook/builder.py
+src/sep_to_ebook/cli.py
+src/sep_to_ebook/epub.py
+src/sep_to_ebook/sep.py
+src/sep_to_ebook.egg-info/PKG-INFO
+src/sep_to_ebook.egg-info/SOURCES.txt
+src/sep_to_ebook.egg-info/dependency_links.txt
+src/sep_to_ebook.egg-info/requires.txt
+src/sep_to_ebook.egg-info/top_level.txt
+tests/test_sep.py
