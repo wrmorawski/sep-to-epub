@@ -22,7 +22,7 @@ python -m sep_to_ebook.cli \
   --output-dir output
 ```
 
-If your local network injects a self-signed TLS certificate, add `--insecure`.
+If Python hits a TLS certificate verification error, the fetch retries automatically without verification and prints a warning. You can still force that behavior with `--insecure`.
 
 ## Random entries
 

@@ -64,7 +64,8 @@ output/sep-sample/
 
 - `--random-count` uses SEP's live `Random Entry` endpoint.
 - The first iteration is intentionally simple: it strips SEP navigation blocks and keeps the article plus bibliography.
-- If your local network injects its own TLS certificate, run with `--insecure`.
+- If Python hits a certificate-verification error, the fetch now retries automatically without verification and prints a warning.
+- You can still force this behavior explicitly with `--insecure`.
 
 ## Validation
 

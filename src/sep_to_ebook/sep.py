@@ -3,8 +3,10 @@ from __future__ import annotations
 import ssl
 from dataclasses import dataclass
 import re
+import sys
 from typing import Iterable
 from urllib.parse import urljoin, urlparse
+from urllib.error import URLError
 from urllib.request import Request, urlopen
 
 from bs4 import BeautifulSoup, NavigableString, Tag
@@ -103,7 +105,22 @@ def fetch_html(url: str, insecure: bool = False) -> str:
 def fetch_response(url: str, insecure: bool = False):
     request = Request(url, headers={"User-Agent": USER_AGENT})
     context = ssl._create_unverified_context() if insecure else None
-    return urlopen(request, context=context)
+    try:
+        return urlopen(request, context=context)
+    except URLError as error:
+        if not insecure and is_ssl_verification_error(error):
+            print(
+                "Warning: TLS certificate verification failed for SEP. "
+                "Retrying without verification.",
+                file=sys.stderr,
+            )
+            return urlopen(request, context=ssl._create_unverified_context())
+        raise
+
+
+def is_ssl_verification_error(error: URLError) -> bool:
+    reason = getattr(error, "reason", None)
+    return isinstance(reason, ssl.SSLCertVerificationError)
 
 
 def extract_entry(html: str, source_url: str) -> SepEntry:
