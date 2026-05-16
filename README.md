@@ -28,8 +28,8 @@ If your local network injects a self-signed TLS certificate, add `--insecure`.
 
 ```bash
 python -m sep_to_ebook.cli \
-  --random-count 3 \
-  --book-title "SEP Random 3" \
+  --random-count 10 \
+  --book-title "SEP Random 1" \
   --output-dir output
 ```
 
