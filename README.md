@@ -1,5 +1,7 @@
 # sep-to-ebook
 
+THIS CODE WAS FULLY VIBECODED - ENJOY!
+
 Minimal Python project that fetches Stanford Encyclopedia of Philosophy entries, extracts the article body plus bibliography, saves cleaned HTML/XHTML files, and packages them into an EPUB.
 
 ## Setup
